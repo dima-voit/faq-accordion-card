@@ -1,5 +1,6 @@
 import { faqData } from "./faqData.js";
 
+let accordions;
 const accordionWrapper = document.querySelector(".accordion");
 
 const accordionItem = (item) => {
@@ -16,7 +17,23 @@ const accordionItem = (item) => {
 const getAccordionItem = () => {
   faqData.forEach(item => {
     accordionWrapper.innerHTML += accordionItem(item);
-  });
+  })
+  accordions = document.querySelectorAll(".accordion__item");
 }
 
 getAccordionItem();
+
+if(accordions) {
+  accordions.forEach((item) => {
+    item.addEventListener("click", function() {
+      if(this.classList.contains("active")) {
+        this.classList.remove("active");
+      } else {
+        accordions.forEach((el) => {
+          el.classList.remove("active");
+        })
+        this.classList.add("active");
+      }
+    })
+  })
+}

@@ -4,7 +4,7 @@ body {
   font-size: 12px;
   font-weight: 400;
   line-height: 1.4;
-  color: hsl(217, 12%, 63%);
+  color: hsl(238, 29%, 16%);
   background: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));
 }
 
@@ -32,12 +32,39 @@ img {
 }
 
 .faq {
+  display: flex;
   position: relative;
   width: 100%;
   max-width: 920px;
   margin: auto;
+  background-image: url("images/bg-pattern-desktop.svg");
+  background-size: 145%;
+  background-repeat: no-repeat;
+  background-position: -130px center;
   background-color: #ffffff;
-  border-radius: 30px;
+  border-radius: 28px;
+}
+
+.faq__img,
+.faq__text {
+  flex: 1;
+}
+
+.faq__img {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.faq__img img {
+  max-width: 470px;
+  transform: translateX(-80px);
+}
+
+.faq__text {
+  width: 100%;
+  padding: 65px 55px 50px 0;
+  align-items: flex-start;
 }
 
 .faq__box {
@@ -47,18 +74,22 @@ img {
   transform: translateX(-47%) translateY(-20%);
 }
 
-.faq__img img {
-  max-width: 470px;
-}
-
 .faq__title {
+  margin-bottom: 35px;
   font-size: 32px;
-  margin-bottom: 14px;
+  line-height: 1.2;
 }
 
 .accordion {
   width: 100%;
   max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.accordion__item {
+  border-bottom: 1px solid hsl(240, 5%, 91%);
 }
 
 .accordion__title {
@@ -67,6 +98,13 @@ img {
   justify-content: space-between;
   margin-bottom: 10px;
   font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: color 0.3s linear;
+}
+
+.accordion__title:hover {
+  color: hsl(14, 88%, 65%);
 }
 
 .accordion__title::after {
@@ -77,19 +115,32 @@ img {
   height: 10px;
   background: url("/images/icon-arrow-down.svg") no-repeat center;
   background-size: contain;
+  transition: transform 0.3s ease-in-out;
 }
 
-.accordion__item {
-  padding: 20px 0 6px;
-  border-bottom: 1px solid black;
+.accordion__item.active .accordion__title::after {
+  transform: rotate(180deg);
+}
+
+.accordion__item.active .accordion__title {
+  font-weight: 700;
 }
 
 .accordion__text {
   display: none;
+  padding-bottom: 20px;
 }
 
-.accordion__text.active {
+.accordion__item.active .accordion__text {
   display: block;
+}
+
+body > div > section > div.faq__text > div > div:nth-child(2) > div {
+  display: block;
+}
+
+body > div.wrapper > section > div.faq__text > div > div:nth-child(2) > h2 {
+  font-weight: 700;
 }
 
 .attribution {
@@ -100,33 +151,4 @@ img {
 
 .attribution a {
   color: hsl(228, 45%, 44%);
-}
-
-@media (min-width: 1024px) {
-  .faq {
-    display: flex;
-    background-image: url("images/bg-pattern-desktop.svg");
-    background-size: 145%;
-    background-repeat: no-repeat;
-    background-position: -130px center;
-  }
-
-  .faq__img,
-  .faq__text {
-    flex: 1;
-  }
-
-  .faq__img {
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-  }
-
-  .faq__img img {
-    transform: translateX(-80px);
-  }
-
-  .faq__text {
-    padding: 62px 15px 85px 45px;
-  }
 }
