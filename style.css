@@ -178,8 +178,4 @@ img {
   .faq__title {
     text-align: left;
   }
-
-  body > div.wrapper > section > div.faq__text > div > div:nth-child(1):hover body > div.wrapper > section > img.faq__box {
-    transform: translateX(-80px);
-  }
 }
