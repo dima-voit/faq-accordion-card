@@ -154,6 +154,7 @@ img {
     top: 49%;
     z-index: 1;
     transform: translateX(-49%) translateY(-20%);
+    transition: all .3s linear;
   }
 
   .faq__img.mobile {

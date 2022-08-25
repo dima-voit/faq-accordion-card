@@ -29,22 +29,25 @@ if(accordions) {
   accordions.forEach((item) => {
     accordions[1].classList.add("active")
 
-    item.addEventListener("mouseover", () => {
-      faqBox.style.transform = "translateY(-80px)";
-    })
+    // item.addEventListener("mouseover", () => {
+    //   faqBox.style.transform = "translateX(-122px) translateY(-20%)";
+    // })
 
-    item.addEventListener("mouseleave", () => {
-      faqBox.style.transform = "translateY(-48px) translateY(-20%)";
-    })
+    // item.addEventListener("mouseleave", () => {
+    //   faqBox.style.transform = "translateX(-49%) translateY(-20%)";
+    // })
 
     item.addEventListener("click", function() {
       if(this.classList.contains("active")) {
         this.classList.remove("active");
+        faqBox.style.transform = "translateX(-49%) translateY(-20%)";
       } else {
         accordions.forEach((el) => {
           el.classList.remove("active");
+          faqBox.style.transform = "translateX(-49%) translateY(-20%)";
         })
         this.classList.add("active");
+        faqBox.style.transform = "translateX(-122px) translateY(-20%)";
       }
     })
   })
