@@ -1,6 +1,7 @@
 import { faqData } from "./faqData.js";
 
 let accordions;
+const faqBox = document.querySelector(".faq__box");
 const accordionWrapper = document.querySelector(".accordion");
 
 const accordionItem = (item) => {
@@ -19,12 +20,14 @@ const getAccordionItem = () => {
     accordionWrapper.innerHTML += accordionItem(item);
   })
   accordions = document.querySelectorAll(".accordion__item");
+
 }
 
 getAccordionItem();
 
 if(accordions) {
   accordions.forEach((item) => {
+    accordions[1].classList.add("active")
     item.addEventListener("click", function() {
       if(this.classList.contains("active")) {
         this.classList.remove("active");
